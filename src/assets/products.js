@@ -1,0 +1,51 @@
+const products = [
+  {
+    id: 1,
+    name: "iPhone 14",
+    brand: "Apple",
+    image: "/images/iphone15.png",
+    price: "$799",
+    features: ["6.1-inch display", "A15 Bionic chip", "Dual camera"],
+  },
+  {
+    id: 2,
+    name: "Galaxy S23",
+    brand: "Samsung",
+    image: "/images/sam23.png",
+    price: "$749",
+    features: ["6.1-inch AMOLED", "Snapdragon 8 Gen 2", "50MP camera"],
+  },
+  {
+    id: 3,
+    name: "Pixel 7",
+    brand: "Google",
+    image: "/images/pixel7.png",
+    price: "$699",
+    features: ["6.3-inch OLED", "Google Tensor G2", "Night Sight camera"],
+  },
+  {
+    id: 4,
+    name: "OnePlus 11",
+    brand: "OnePlus",
+    image: "/images/11.png",
+    price: "$699",
+    features: ["6.7-inch AMOLED", "Snapdragon 8 Gen 2", "80W fast charge"],
+  },
+  {
+    id: 5,
+    name: "Xperia 5 IV",
+    brand: "Sony",
+    image: "/images/sony.jpg",
+    price: "$899",
+    features: ["6.1-inch OLED", "Snapdragon 8 Gen 1", "120Hz refresh rate"],
+  },
+  {
+    id: 6,
+    name: "Moto Edge 30",
+    brand: "Motorola",
+    image: "/images/edge.png",
+    price: "$599",
+    features: ["6.55-inch OLED", "Snapdragon 778G+", "5G connectivity"],
+  },
+];
+export default products;
