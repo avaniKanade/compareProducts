@@ -1,4 +1,3 @@
-import React from "react";
 
 const ThemeToggle = ({ darkMode, onToggle }) => {
   return (

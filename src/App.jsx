@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import products from "./assets/products";
 import ProductList from "./components/ProductList";
-import CompareBar from "./components/CompareBar";
 import CompareView from "./components/CompareView";
 import SearchBar from "./components/SearchBar";
 import ThemeToggle from "./components/ThemeToggle";
+import { Navigate } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Navbar from "./components/Navbar";
 
 function App() {
   const [compareList, setCompareList] = useState(() => {
@@ -17,7 +16,6 @@ function App() {
   const [query, setQuery] = useState("");
   const [darkMode, setDarkMode] = useState(false);
 
-  // persist compare list
   useEffect(() => {
     localStorage.setItem("compareList", JSON.stringify(compareList));
   }, [compareList]);
@@ -28,6 +26,10 @@ function App() {
     } else if (compareList.length < 3) {
       setCompareList([...compareList, product]);
     }
+  };
+
+  const handleRemoveFromCompare = (id) => {
+    setCompareList(compareList.filter(p => p.id !== id));
   };
 
   const filteredProducts = products.filter(
@@ -42,14 +44,11 @@ function App() {
     <Router>
       <div className={darkMode ? "bg-dark text-light min-vh-100" : "bg-light text-dark min-vh-100"}>
         <div className="container py-4">
-          {/* Navbar */}
           <nav className="d-flex justify-content-between align-items-center mb-4">
-            {/* Left side: Products link */}
             <Link to="/" className="text-decoration-underline fw-bold text-primary">
               Products
             </Link>
 
-            {/* Right side: Compare + Theme toggle */}
             <div className="d-flex align-items-center gap-3">
               {compareList.length >= 2 && (
                 <Link to="/compare" className="btn btn-success">
@@ -60,10 +59,7 @@ function App() {
             </div>
           </nav>
 
-
-
           <Routes>
-            {/* Product Page */}
             <Route
               path="/"
               element={<>
@@ -74,12 +70,18 @@ function App() {
                   onToggleCompare={toggleCompare} />
               </>} />
 
-            {/* Compare Page */}
             <Route
               path="/compare"
-              element={<CompareView
-                compareList={compareList}
-                onClose={() => setCompareList([])} />} />
+              element={
+                compareList.length > 0
+                  ? <CompareView
+                    compareList={compareList}
+                    onClose={() => setCompareList([])}
+                    onRemove={handleRemoveFromCompare}
+                  />
+                  : <Navigate to="/" />
+              }
+            />
           </Routes>
         </div>
       </div>

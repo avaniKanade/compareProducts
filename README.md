@@ -1,12 +1,59 @@
-# React + Vite
+# Product Comparison App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive React app that lets users compare up to three products side-by-side.  
+**All tasks and bonus features have been implemented except keyboard accessibility.**
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✅ Features Implemented
 
-## Expanding the ESLint configuration
+### Product List
+- Displays a grid of 6+ products.
+- Each product shows:
+  - Name
+  - Brand
+  - Image
+  - Price
+  - 3 key features (e.g., memory, display, camera).
+- **Add to Compare** button for each product.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Add to Compare
+- Users can select up to 3 products to compare.
+- “Compare” view only appears when at least 2 products are selected.
+
+### Comparison View
+- Shows a side-by-side table of selected products.
+- All main attributes (brand, price, memory, display size, camera MP) are compared.
+- **Differences are visually highlighted** with colored backgrounds.
+- Product images are displayed for easy comparison.
+
+### Clear/Remove Options
+- Users can:
+  - Remove any single item from the comparison (Remove button per product).
+  - Clear the entire compare list (Close Comparison).
+
+### Technology Used
+- **React** with functional components and hooks.
+- Uses HTML5, CSS3 (Bootstrap for styling).
+- Fully **responsive** (mobile & desktop layouts).
+- Uses only static data—no backend/API.
+
+---
+
+## 🚀 Bonus Features (Implemented)
+- [x] **localStorage:** Compared products persist on reload.
+- [x] **Search/Filter Bar:** Filter the product list by keyword.
+- [x] **Light/Dark Mode Toggle:** Switch between light and dark themes.
+
+---
+
+## 🚧 Not Implemented
+- **Keyboard accessibility for product selection flow** is not implemented.
+
+---
+
+## 📦 How to Run
+
+```bash
+npm install
+npm start
